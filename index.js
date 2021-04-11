@@ -8,7 +8,7 @@ const fetch = require("node-fetch");
 
 app.get('/api/git',(req, res)=>{
     async function gitRepoApi(){
-        const response = await fetch('https://api.github.com/users');
+        const response = await fetch('https://api.github.com/users/mojombo/repos');
         const users = await response.json();
         return users;
     }
