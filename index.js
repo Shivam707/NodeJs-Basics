@@ -1,24 +1,13 @@
 const express = require('express');
+const gitapi = require('./GitApi');
 
 const app = express();
 
-const fetch = require("node-fetch");
-
+console.log(gitapi.user);
 
 
 app.get('/api/git',(req, res)=>{
-    async function gitRepoApi(){
-        const response = await fetch('https://api.github.com/users/mojombo/repos');
-        const users = await response.json();
-        return users;
-    }
-    const a = gitRepoApi();
-    a.then(data =>{
-        if(err){
-            return err;
-        }
-       res.send(data);
-    })
+    res.send(gitapi.user);
 })
 
 app.listen(9090,() => {
